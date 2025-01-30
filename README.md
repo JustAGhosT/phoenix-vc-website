@@ -1,2 +1,1 @@
-# phoenix-vc-website
-Phoenix VC's corporate website built with Next.js 13, TypeScript, and our Phoenix Design System
+This repository is empty. Any task executed on it should be considered a new capability and needs to be created.
