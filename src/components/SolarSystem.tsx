@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 
-interface Project {
+interface PortfolioItem {
   id: string;
   name: string;
   description: string;
@@ -15,7 +15,7 @@ interface SunData {
   color: string;
   position: { x: number; y: number };
   size: number;
-  projects: Project[];
+  portfolioItems: PortfolioItem[];
 }
 
 const suns: SunData[] = [
@@ -25,7 +25,7 @@ const suns: SunData[] = [
     color: '#8B5CF6', // Purple
     position: { x: 75, y: 30 },
     size: 60,
-    projects: [
+    portfolioItems: [
       { id: 'p1', name: 'Phoenix VC Website', description: 'Corporate website built with modern web technologies', category: 'Web' },
       { id: 'p2', name: 'CloudNexus', description: 'Cloud infrastructure management platform', category: 'Cloud' },
     ],
@@ -36,7 +36,7 @@ const suns: SunData[] = [
     color: '#3B82F6', // Blue
     position: { x: 25, y: 60 },
     size: 50,
-    projects: [
+    portfolioItems: [
       { id: 'p3', name: 'DataFlow Analytics', description: 'AI-powered data analytics platform', category: 'AI/ML' },
     ],
   },
@@ -46,7 +46,7 @@ const suns: SunData[] = [
     color: '#10B981', // Green
     position: { x: 85, y: 70 },
     size: 45,
-    projects: [
+    portfolioItems: [
       { id: 'p4', name: 'SecureVault', description: 'Cybersecurity solutions for enterprises', category: 'Security' },
     ],
   },
@@ -96,7 +96,7 @@ export default function SolarSystem() {
         {suns.map((sun) => (
           <g key={sun.id}>
             {/* Orbit paths */}
-            {sun.projects.map((_, index) => (
+            {sun.portfolioItems.map((_, index) => (
               <circle
                 key={`orbit-${sun.id}-${index}`}
                 cx={sun.position.x}
@@ -130,14 +130,14 @@ export default function SolarSystem() {
             />
 
             {/* Planets - colors aligned with their sun */}
-            {sun.projects.map((project, index) => {
+            {sun.portfolioItems.map((item, index) => {
               const orbitRadius = (index + 1) * 8 + sun.size / 10;
               const planetColor = getPlanetColor(sun.color, index);
               const animationDuration = 20 + index * 10;
 
               return (
                 <circle
-                  key={project.id}
+                  key={item.id}
                   r={1.5}
                   fill={planetColor}
                   style={{
@@ -185,12 +185,12 @@ export default function SolarSystem() {
               {sun.name}
             </h3>
             <p className="text-xs text-gray-300 mb-2">
-              {sun.projects.length} project{sun.projects.length !== 1 ? 's' : ''}
+              {sun.portfolioItems.length} investment{sun.portfolioItems.length !== 1 ? 's' : ''}
             </p>
             <ul className="space-y-1">
-              {sun.projects.map((project) => (
-                <li key={project.id} className="text-xs text-gray-400">
-                  {project.name}
+              {sun.portfolioItems.map((item) => (
+                <li key={item.id} className="text-xs text-gray-400">
+                  {item.name}
                 </li>
               ))}
             </ul>

@@ -1,7 +1,7 @@
 import { Card, Button } from '@phoenix-vc/design-system';
 import Link from 'next/link';
 
-const projects = [
+const investments = [
   {
     id: 1,
     name: 'Phoenix VC Website',
@@ -131,17 +131,17 @@ export default function PortfolioPage() {
       </header>
       <main className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <Card key={project.id} className="p-6 hover:scale-105 transition-transform cursor-pointer">
+          {investments.map((investment) => (
+            <Card key={investment.id} className="p-6 hover:scale-105 transition-transform cursor-pointer">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
-                  {project.icon}
+                  {investment.icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h2 className="text-xl font-semibold text-white mb-2">{project.name}</h2>
-                  <p className="text-gray-400 text-sm mb-3">{project.description}</p>
+                  <h2 className="text-xl font-semibold text-white mb-2">{investment.name}</h2>
+                  <p className="text-gray-400 text-sm mb-3">{investment.description}</p>
                   <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                    {project.category}
+                    {investment.category}
                   </span>
                 </div>
               </div>
