@@ -1,11 +1,15 @@
 import { Button, Card } from '@phoenix-vc/design-system';
 import Link from 'next/link';
+import SolarSystem from '@/components/SolarSystem';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+      {/* Solar System Background */}
+      <SolarSystem />
+
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center min-h-[80vh] px-4 text-center">
+      <section className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-4 text-center">
         <h1 className="text-5xl md:text-6xl font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-6">
           Shaping Tomorrow&apos;s Technology
         </h1>
@@ -27,7 +31,7 @@ export default function HomePage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 px-4">
+      <section className="relative z-10 py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <Card className="p-8">
             <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
