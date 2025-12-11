@@ -5,18 +5,20 @@ import SolarSystem from '@/components/SolarSystem';
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Solar System Background */}
-      <SolarSystem />
+      {/* Solar System Background - z-index 5 so it's interactive */}
+      <div className="absolute inset-0 z-[5]">
+        <SolarSystem />
+      </div>
 
-      {/* Hero Section */}
-      <section className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-4 text-center">
+      {/* Hero Section - pointer-events-none allows clicks through to solar system */}
+      <section className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-4 text-center pointer-events-none">
         <h1 className="text-5xl md:text-6xl font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-6">
           Shaping Tomorrow&apos;s Technology
         </h1>
         <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-10">
           Strategic investments and partnerships empowering innovation across the globe
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 pointer-events-auto">
           <Link href="/portfolio">
             <Button variant="primary" className="min-w-[180px]">
               Our Focus Areas
@@ -30,9 +32,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="relative z-10 py-20 px-4">
-        <div className="max-w-4xl mx-auto">
+      {/* Mission Section - pointer-events-none allows clicks through to solar system */}
+      <section className="relative z-10 py-20 px-4 pointer-events-none">
+        <div className="max-w-4xl mx-auto pointer-events-auto">
           <Card className="p-8">
             <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
             <p className="text-gray-300 text-lg">
